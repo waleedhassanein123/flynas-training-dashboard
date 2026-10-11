@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flynas Dashboard - Step-by-Step Render Deployment Guide</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            500: '#06b6d4',
+                            600: '#0891b2',
+                            700: '#0e7490',
+                            darkBg: '#0b0f19',
+                            cardBg: '#111827',
+                            border: '#1f2937'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0b0f19;
+            color: #f3f4f6;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-[#0b0f19] text-gray-100 flex flex-col">
+
+    <!-- Header -->
+    <header class="bg-[#111827] border-b border-gray-800 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center font-bold text-white text-xl shadow-lg shadow-cyan-500/20">
+                    XY
+                </div>
+                <div>
+                    <h1 class="text-lg font-bold text-white tracking-wide">flynas Dashboard Deployment Guide</h1>
+                    <p class="text-xs text-cyan-400">Step-by-Step Render.com Publishing Blueprint</p>
+                </div>
+            </div>
+            <a href="https://dashboard.render.com" target="_blank" class="px-3 py-1.5 text-xs font-semibold rounded-lg bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 hover:bg-cyan-500/20 transition-all flex items-center gap-1.5">
+                <i data-lucide="external-link" class="w-4 h-4"></i> Open dashboard.render.com
+            </a>
+        </div>
+    </header>
+
+    <main class="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+
+        <!-- Introduction Banner -->
+        <div class="bg-gradient-to-r from-cyan-950/40 via-[#111827] to-blue-950/40 border border-cyan-500/30 rounded-2xl p-6 shadow-xl">
+            <div class="flex items-start space-x-4">
+                <div class="p-3 bg-cyan-500/10 text-cyan-400 rounded-xl border border-cyan-500/20">
+                    <i data-lucide="rocket" class="w-7 h-7"></i>
+                </div>
+                <div>
+                    <h2 class="text-xl font-bold text-white">Deploying to Render (dashboard.render.com)</h2>
+                    <p class="text-sm text-gray-300 mt-1 leading-relaxed">
+                        Render provides free, fast, and fully automated hosting with automated HTTPS/SSL encryption. Because our flynas Executive Dashboard is engineered as a zero-dependency static application (`index.html`), deploying takes less than 3 minutes using either **GitHub connection** or **Render CLI**.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Deployment Method 1: GitHub / UI Deployment (Recommended) -->
+        <section class="bg-[#111827] border border-gray-800 rounded-xl p-6 shadow-md space-y-6">
+            <div class="flex items-center justify-between border-b border-gray-800 pb-4">
+                <div class="flex items-center space-x-3">
+                    <span class="w-8 h-8 rounded-full bg-cyan-500/20 text-cyan-400 font-bold flex items-center justify-center text-sm border border-cyan-500/40">1</span>
+                    <h3 class="text-lg font-bold text-white">Method A: Continuous Deployment via GitHub (Recommended)</h3>
+                </div>
+                <span class="text-xs bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2.5 py-1 rounded-full font-medium">Automatic Updates</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Step 1 -->
+                <div class="bg-gray-900/60 p-4 rounded-xl border border-gray-800/80 space-y-2">
+                    <div class="flex items-center space-x-2 text-cyan-400 text-sm font-bold">
+                        <i data-lucide="folder-plus" class="w-4 h-4"></i>
+                        <span>Step 1: Save Dashboard File</span>
+                    </div>
+                    <p class="text-xs text-gray-300 leading-relaxed">
+                        Create a local folder on your computer named <code class="bg-gray-800 px-1.5 py-0.5 rounded text-cyan-300 font-mono">flynas-dashboard</code>. Save your main code file inside it as <code class="bg-gray-800 px-1.5 py-0.5 rounded text-cyan-300 font-mono">index.html</code>.
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="bg-gray-900/60 p-4 rounded-xl border border-gray-800/80 space-y-2">
+                    <div class="flex items-center space-x-2 text-cyan-400 text-sm font-bold">
+                        <i data-lucide="github" class="w-4 h-4"></i>
+                        <span>Step 2: Push to GitHub Repository</span>
+                    </div>
+                    <p class="text-xs text-gray-300 leading-relaxed">
+                        Go to GitHub.com, create a new public or private repository named <code class="bg-gray-800 px-1.5 py-0.5 rounded text-cyan-300 font-mono">flynas-training-dashboard</code>, and push your <code class="bg-gray-800 px-1.5 py-0.5 rounded text-cyan-300 font-mono">index.html</code> file to the <code class="bg-gray-800 px-1.5 py-0.5 rounded text-cyan-300 font-mono">main</code> branch.
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="bg-gray-900/60 p-4 rounded-xl border border-gray-800/80 space-y-2">
+                    <div class="flex items-center space-x-2 text-cyan-400 text-sm font-bold">
+                        <i data-lucide="layout-grid" class="w-4 h-4"></i>
+                        <span>Step 3: Connect dashboard.render.com</span>
+                    </div>
+                    <p class="text-xs text-gray-300 leading-relaxed">
+                        Log in to <strong class="text-white">dashboard.render.com</strong>. Click the blue <strong class="text-white">"New +"</strong> button in the top right and select <strong class="text-cyan-400">"Static Site"</strong>.
+                    </p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="bg-gray-900/60 p-4 rounded-xl border border-gray-800/80 space-y-2">
+                    <div class="flex items-center space-x-2 text-cyan-400 text-sm font-bold">
+                        <i data-lucide="settings" class="w-4 h-4"></i>
+                        <span>Step 4: Configure Site Settings</span>
+                    </div>
+                    <p class="text-xs text-gray-300 leading-relaxed">
+                        Select your <code class="bg-gray-800 px-1.5 py-0.5 rounded text-cyan-300 font-mono">flynas-training-dashboard</code> repo and fill in the form fields exactly as shown below:
+                    </p>
+                </div>
+            </div>
+
+            <!-- Configuration Summary Table -->
+            <div class="overflow-hidden rounded-xl border border-gray-800 bg-gray-900/40">
+                <table class="w-full text-left text-xs">
+                    <thead class="bg-gray-900 text-gray-400 uppercase font-semibold">
+                        <tr>
+                            <th class="py-3 px-4">Setting Field</th>
+                            <th class="py-3 px-4">Value to Enter</th>
+                            <th class="py-3 px-4">Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-800 text-gray-300">
+                        <tr>
+                            <td class="py-3 px-4 font-semibold text-white">Name</td>
+                            <td class="py-3 px-4 text-cyan-400 font-mono">flynas-training-dashboard</td>
+                            <td class="py-3 px-4 text-gray-400">Determines your default URL address</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 px-4 font-semibold text-white">Branch</td>
+                            <td class="py-3 px-4 text-cyan-400 font-mono">main</td>
+                            <td class="py-3 px-4 text-gray-400">Branch containing your index.html file</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 px-4 font-semibold text-white">Root Directory</td>
+                            <td class="py-3 px-4 text-gray-400 font-mono">(Leave Blank)</td>
+                            <td class="py-3 px-4 text-gray-400">Defaults to the repository root</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 px-4 font-semibold text-white">Build Command</td>
+                            <td class="py-3 px-4 text-gray-400 font-mono">(Leave Blank)</td>
+                            <td class="py-3 px-4 text-gray-400">No compilation needed for pure static HTML/JS</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 px-4 font-semibold text-white">Publish Directory</td>
+                            <td class="py-3 px-4 text-cyan-400 font-mono">.</td>
+                            <td class="py-3 px-4 text-gray-400">Serves files from root directory</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="pt-2 flex justify-end">
+                <button onclick="copyGithubCommands()" class="px-4 py-2 bg-cyan-600 hover:bg-cyan-500 text-white rounded-lg text-xs font-semibold flex items-center gap-2 transition-all shadow-md">
+                    <i data-lucide="copy" class="w-4 h-4"></i> Copy Git Push Commands
+                </button>
+            </div>
+        </section>
+
+        <!-- Deployment Method 2: Command Line (CLI) -->
+        <section class="bg-[#111827] border border-gray-800 rounded-xl p-6 shadow-md space-y-4">
+            <div class="flex items-center space-x-3 border-b border-gray-800 pb-4">
+                <span class="w-8 h-8 rounded-full bg-blue-500/20 text-blue-400 font-bold flex items-center justify-center text-sm border border-blue-500/40">2</span>
+                <h3 class="text-lg font-bold text-white">Method B: Direct Terminal / CLI Deployment</h3>
+            </div>
+
+            <p class="text-xs text-gray-300">
+                If you prefer deploying directly from your terminal using Render's blueprint format, create a <code class="bg-gray-800 px-1.5 py-0.5 rounded text-cyan-300 font-mono">render.yaml</code> file in your directory:
+            </p>
+
+            <div class="bg-gray-950 p-4 rounded-xl border border-gray-800 font-mono text-xs text-cyan-300 relative group">
+                <pre id="yamlCode">services:
+  - type: web
+    name: flynas-training-dashboard
+    env: static
+    buildCommand: ""
+    staticPublishPath: .
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html</pre>
+                <button onclick="copyToClipboard('yamlCode')" class="absolute top-3 right-3 p-1.5 bg-gray-800 hover:bg-gray-700 text-gray-300 rounded text-xs flex items-center gap-1 transition-all">
+                    <i data-lucide="copy" class="w-3.5 h-3.5"></i> Copy
+                </button>
+            </div>
+        </section>
+
+        <!-- Post-Deployment: Custom Domain & Executive Share Links -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-[#111827] border border-gray-800 rounded-xl p-5 shadow-md space-y-3">
+                <div class="flex items-center space-x-2 text-cyan-400 font-bold text-sm">
+                    <i data-lucide="globe" class="w-4 h-4"></i>
+                    <span>Custom Subdomain Setup</span>
+                </div>
+                <p class="text-xs text-gray-300 leading-relaxed">
+                    To link a corporate domain like <code class="text-cyan-300 font-mono">dashboard.flynas.com</code>:
+                </p>
+                <ol class="list-decimal list-inside text-xs text-gray-400 space-y-1.5 pl-1">
+                    <li>In <strong class="text-gray-200">dashboard.render.com</strong>, click your static site service.</li>
+                    <li>Navigate to <strong class="text-gray-200">Settings</strong> &rarr; <strong class="text-gray-200">Custom Domains</strong>.</li>
+                    <li>Click <strong class="text-cyan-400">"Add Custom Domain"</strong> and type your domain name.</li>
+                    <li>Add a <code class="text-cyan-300 font-mono">CNAME</code> record in your DNS provider pointing to <code class="text-cyan-300 font-mono">flynas-training-dashboard.onrender.com</code>.</li>
+                </ol>
+            </div>
+
+            <div class="bg-[#111827] border border-gray-800 rounded-xl p-5 shadow-md space-y-3">
+                <div class="flex items-center space-x-2 text-emerald-400 font-bold text-sm">
+                    <i data-lucide="shield-check" class="w-4 h-4"></i>
+                    <span>Security & Access Control</span>
+                </div>
+                <p class="text-xs text-gray-300 leading-relaxed">
+                    Ensure executive data confidentiality with these Render features:
+                </p>
+                <ul class="list-disc list-inside text-xs text-gray-400 space-y-1.5 pl-1">
+                    <li><strong class="text-gray-200">Automatic SSL:</strong> TLS/SSL certificates are auto-provisioned free of charge.</li>
+                    <li><strong class="text-gray-200">IP Headers:</strong> Render adds standard headers for proxying behind Cloudflare or corporate VPNs.</li>
+                    <li><strong class="text-gray-200">HTTP Headers:</strong> Customize security headers via <code class="text-cyan-300 font-mono">render.yaml</code> or Render Settings.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Verification Checklist -->
+        <div class="bg-[#111827] border border-gray-800 rounded-xl p-6 shadow-md space-y-4">
+            <h3 class="text-base font-bold text-white flex items-center gap-2">
+                <i data-lucide="check-square" class="w-5 h-5 text-cyan-400"></i> Deployment Verification Checklist
+            </h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 text-xs">
+                <label class="flex items-center space-x-2 bg-gray-900/60 p-3 rounded-lg border border-gray-800">
+                    <input type="checkbox" checked disabled class="rounded border-gray-700 text-cyan-500 focus:ring-0">
+                    <span class="text-gray-300">File saved as <code class="text-cyan-400 font-mono">index.html</code></span>
+                </label>
+                <label class="flex items-center space-x-2 bg-gray-900/60 p-3 rounded-lg border border-gray-800">
+                    <input type="checkbox" checked disabled class="rounded border-gray-700 text-cyan-500 focus:ring-0">
+                    <span class="text-gray-300">Publish Directory set to <code class="text-cyan-400 font-mono">.</code></span>
+                </label>
+                <label class="flex items-center space-x-2 bg-gray-900/60 p-3 rounded-lg border border-gray-800">
+                    <input type="checkbox" checked disabled class="rounded border-gray-700 text-cyan-500 focus:ring-0">
+                    <span class="text-gray-300">Live URL ending in <code class="text-cyan-400 font-mono">.onrender.com</code></span>
+                </label>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        lucide.createIcons();
+
+        function copyToClipboard(elementId) {
+            const text = document.getElementById(elementId).innerText;
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+            alert('Copied to clipboard!');
+        }
+
+        function copyGithubCommands() {
+            const cmds = `git init\ngit add index.html\ngit commit -m "Deploy flynas Executive Dashboard"\ngit branch -M main\ngit remote add origin https://github.com/YOUR_USERNAME/flynas-training-dashboard.git\ngit push -u origin main`;
+            const textarea = document.createElement('textarea');
+            textarea.value = cmds;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+            alert('Git commands copied to clipboard!');
+        }
+    </script>
+</body>
+</html>
